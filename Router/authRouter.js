@@ -10,6 +10,7 @@ authRouter.route("/getCookies").get(getCookies);
 authRouter.route("/setCookies").get(setCookies);
 authRouter.route("/signup").get(getSignup).post(postSignup);
 authRouter.route("/login").post(userLogin);
+authRouter.route("/logout").post(logout);
 
 // Login functionality
 
@@ -77,6 +78,18 @@ function setCookies(req, res) {
 function getCookies(req, res) {
     var cookies = req.cookies;
     console.log(cookies);
+}
+
+function logout(req,res){
+    // just deleted the jwt cookie which will logout the customer
+    // there is already one cookie created login when we login
+    // we override that cookie
+
+    res.cookie('login', ' ',{maxAge:1}); //name:login, ' ' -> make it empty , maxage -> expire t he cokkie in 1 ms
+    res.json({
+            message:"user logout"
+    })
+
 }
 
 async function postSignup(req, res) {
