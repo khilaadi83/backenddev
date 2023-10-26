@@ -1,9 +1,13 @@
+
+/* map is similar to forEach, but it returns a new array with the results of calling a provided function on every element in the calling array. In other words, map applies a function to each element of an array and returns a new array with the updated values. */
+
 /* Given an array of strings, use the map() method to create a new array that contains the length of each string. */
 
 let arr = ['kartik', 'narang', 'ashwini', 'zende', 'anjali'];
 let newarr = arr.map((value) => {
     return value.length;
 })
+
 
 console.log("Old array is untouched", arr);
 console.log("This is the new array", newarr);
@@ -116,7 +120,7 @@ let players = [{
     // 0 means initail starting value
     let totalScore = players.reduce((acc, player) => {
         // Get the scores for each player
-        const scores = Object.values(player).map(p => p.score);
+        const scores = Object.values(player).map(p => p.score); // returned the new array which contains the score
         // Sum up the scores and add them to the accumulator
         return acc + scores.reduce((sum, score) => sum + score, 0);
       }, 0);

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>hello world </h1>
+    <button class="my-button">Click me!</button>
+</body>
+</html>
+
+<script>
+    window.dataLayer = window.dataLayer || [];
+   let button = document.querySelector('.my-button');
+   button.addEventListener('click',function(){
+    window.dataLayer.push({
+        'event':"button-click",
+        'buttonText':this.textContent
+    })
+    console.log("Data pushed into the datalayer")
+   })
+</script>
